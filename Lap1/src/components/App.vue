@@ -6,12 +6,14 @@ const MyAccount =[
           {name:'car fuel',amount:-600},
           {name:'commission',amount:5500}
           ]
-const greenBG="background-color:green";
-const redBG="background-color:red";
-let sum=0;
-for(let amount of MyAccount){
-          sum+=amount.amount;
-}
+
+// let startValue = 0
+
+// let sum = MyAccount.reduce(function (total, currentValue) {
+
+//   return total + currentValue.amount
+
+// }, startValue)
 </script>
 <template>
 <ul style="list-style: none;">
@@ -19,12 +21,11 @@ for(let amount of MyAccount){
       <p v-if="value.amount !=0">
       <b>Name: </b> {{ value.name }}<br>
       <b>Amount: </b>
-      <span v-if="value.amount > 0" :style="greenBG"> {{ value.amount }}</span>
-      <span v-else-if="value.amount < 0" :style="redBG" > {{ value.amount }}</span>
+      <span :style="value.amount > 0 ? 'background-color:green': 'background-color:red'"> {{ value.amount }}</span>
       </p>
     </li>
   </ul>
-  <p><b>Total</b>: {{sum}}</p>
+  <p><b>Total</b>: {{MyAccount.reduce( (total, account)=>total+account.amount ,0)}}</p>
 </template>
  
 <style>
