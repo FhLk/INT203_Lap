@@ -35,13 +35,12 @@ const CheckStyle=(number)=>{
     return 'text-decoration-line: line-through; color:red'
   }
 }
-
 </script>
 
 <template>
   <div class="top-container">
     <div class="action-button">
-      <button :disabled="randNumbers.length == 99 || !(listgrid.length<=9)" @click="generateNumber">Generate New Number</button>
+      <button :disabled="listgrid.length == 9 && !(listgrid.includes(undefined))" @click="generateNumber">Generate New Number</button>
       <button @click="Reset">Reset</button>
     </div>
     <div class="error-message" v-show="error">
