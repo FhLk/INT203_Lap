@@ -19,7 +19,7 @@ const removeNote= async (noteId)=>{
   })
   if(res.status===200){
     notes.value=notes.value.filter((note)=>note.id!==noteId).map((note)=>{
-      return note.id>noteId ? {...note,id:note.id-1} : note});
+      return note.id>noteId ? {...note,id:note.id} : note});
     console.log("Delete Successfully")
   }
   else{
